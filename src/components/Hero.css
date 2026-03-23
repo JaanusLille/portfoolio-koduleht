@@ -1,0 +1,120 @@
+.hero {
+  --tw-bg-opacity: 1;
+  position: relative;
+  padding: clamp(3rem, 8vw, 5.5rem) 1.5rem clamp(4rem, 12vw, 7rem);
+  overflow: hidden;
+  background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+}
+
+.hero__glow {
+  pointer-events: none;
+  position: absolute;
+  inset: -40% -20% auto;
+  height: min(70vh, 520px);
+  background:
+    radial-gradient(
+      ellipse 80% 60% at 70% 20%,
+      rgb(148 163 184 / 14%),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 50% 45% at 15% 60%,
+      rgb(248 250 252 / 6%),
+      transparent 65%
+    );
+  opacity: 0.95;
+}
+
+.hero__inner {
+  position: relative;
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.hero__eyebrow {
+  margin: 0 0 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgb(251 191 36 / 95%);
+}
+
+.hero__title {
+  margin: 0 0 1.25rem;
+  max-width: 14ch;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.35rem, 5.5vw, 3.65rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: rgb(248 250 252);
+}
+
+.hero__lede {
+  margin: 0 0 2.25rem;
+  max-width: 38rem;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.35vw, 1.125rem);
+  line-height: 1.65;
+  color: rgb(203 213 225);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+.hero__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0 1.35rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 999px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.hero__btn--primary {
+  background: rgb(248 250 252);
+  color: rgb(15 23 42);
+  border: 2px solid rgb(248 250 252);
+  box-shadow: 0 4px 24px rgb(0 0 0 / 25%);
+}
+
+.hero__btn--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 32px rgb(0 0 0 / 35%);
+}
+
+.hero__btn--primary:focus-visible {
+  outline: 2px solid rgb(251 191 36);
+  outline-offset: 3px;
+}
+
+.hero__btn--ghost {
+  background: transparent;
+  color: rgb(248 250 252);
+  border: 2px solid rgb(148 163 184 / 55%);
+}
+
+.hero__btn--ghost:hover {
+  border-color: rgb(251 191 36 / 80%);
+  color: rgb(253 230 138);
+}
+
+.hero__btn--ghost:focus-visible {
+  outline: 2px solid rgb(251 191 36);
+  outline-offset: 3px;
+}

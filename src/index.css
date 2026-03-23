@@ -1,0 +1,38 @@
+:root {
+  --bg: #faf7f2;
+  --surface: #fffcf8;
+  --ink: #1c1915;
+  --muted: #5e574f;
+  --border: #e8e1d8;
+  --border-strong: #cfc6ba;
+  --accent: #b54a28;
+  --accent-warm: #c9783a;
+
+  --font-display: 'Literata', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Epilogue', system-ui, sans-serif;
+  --content-max: 72rem;
+
+  font-family: var(--font-sans);
+  font-size: 100%;
+  line-height: 1.5;
+  color: var(--muted);
+  background-color: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100svh;
+}

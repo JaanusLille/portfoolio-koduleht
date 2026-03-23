@@ -1,0 +1,227 @@
+.site-header {
+  --header-purple: rgb(93 63 211);
+  --header-purple-deep: color-mix(in srgb, rgb(93 63 211) 82%, black);
+  --header-fg: rgb(248 250 252);
+  --header-fg-muted: rgb(248 250 252 / 78%);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--header-purple);
+  border-bottom: 1px solid var(--header-purple-deep);
+}
+
+.site-header__inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  min-height: 7.5rem;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.site-header__logo {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 2.1rem;
+  letter-spacing: -0.02em;
+  /* color: var(--header-fg); */
+  color: #ffffff;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.site-header__logo:hover {
+  color: rgb(254 249 195);
+}
+
+.site-header__menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid rgb(255 255 255 / 38%);
+  border-radius: 10px;
+  background: rgb(255 255 255 / 12%);
+  cursor: pointer;
+  color: var(--header-fg);
+}
+
+.site-header__menu-btn:hover {
+  border-color: rgb(255 255 255 / 55%);
+  background: rgb(255 255 255 / 18%);
+}
+
+.site-header__menu-btn:focus-visible {
+  outline: 2px solid rgb(254 249 195);
+  outline-offset: 2px;
+}
+
+.site-header__burger {
+  position: relative;
+  width: 1.125rem;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+.site-header__burger::before,
+.site-header__burger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  transition: transform 0.2s ease, top 0.2s ease, opacity 0.2s ease;
+}
+
+.site-header__burger::before {
+  top: -6px;
+}
+
+.site-header__burger::after {
+  top: 6px;
+}
+
+.site-header__burger[data-open='true'] {
+  background: transparent;
+}
+
+.site-header__burger[data-open='true']::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.site-header__burger[data-open='true']::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.site-header__nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header__links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem 1.75rem;
+}
+
+.site-header__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  /* font-size: 0.9375rem; */
+  font-size: 1.2rem;
+  font-weight: 500;
+  /* color: var(--header-fg-muted); */
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.35rem 0;
+  position: relative;
+}
+
+.site-header__link-icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  object-fit: contain;
+}
+
+.site-header__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: rgb(254 249 195);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.site-header__link:hover {
+  color: var(--header-fg);
+}
+
+.site-header__link:hover::after,
+.site-header__link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.site-header__link:focus-visible {
+  outline: none;
+  color: var(--header-fg);
+}
+
+@media (max-width: 768px) {
+  .site-header__menu-btn {
+    display: inline-flex;
+  }
+
+  .site-header__nav {
+    position: fixed;
+    inset: 0;
+    top: 7.5rem;
+    background: color-mix(in srgb, var(--header-purple) 94%, black);
+    padding: 1.5rem;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease,
+      visibility 0.25s;
+  }
+
+  .site-header__nav[data-open='true'] {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .site-header__links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .site-header__link {
+    display: flex;
+    padding: 1rem 0;
+    font-size: 1.125rem;
+    border-bottom: 1px solid rgb(255 255 255 / 18%);
+  }
+
+  .site-header__link-icon {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+
+  .site-header__link::after {
+    display: none;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
