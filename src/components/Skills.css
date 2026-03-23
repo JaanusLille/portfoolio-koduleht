@@ -58,7 +58,7 @@
     0 12px 34px rgb(0 0 0 / 20%),
     0 0 0 1px rgb(93 63 211 / 30%),
     0 0 24px rgb(93 63 211 / 28%);
-  animation: skills-card-glow-pulse 3s ease-in-out infinite;
+  animation: skills-card-glow-pulse 7s ease-in-out infinite;
   transition:
     box-shadow 180ms ease,
     transform 180ms ease;
@@ -117,7 +117,7 @@
   color: rgb(196 181 253);
   --chip-rgb: 167 139 250;
   box-shadow: 0 0 12px rgb(var(--chip-rgb) / 16%);
-  animation: skills-chip-glow-pulse 3s ease-in-out infinite;
+  animation: skills-chip-glow-pulse 8s ease-in-out infinite;
 }
 
 .skills-card__item:nth-child(6n + 2) {
@@ -162,6 +162,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .skills-card,
   .skills-card__item {
     animation: none;
   }
