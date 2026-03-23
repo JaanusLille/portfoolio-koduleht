@@ -43,6 +43,16 @@
   width: clamp(180px, 26vw, 320px);
   aspect-ratio: 1;
   border-radius: 50%;
+  padding: clamp(0.35rem, 1vw, 0.6rem);
+  background: linear-gradient(
+    145deg,
+    rgb(251 191 36 / 90%),
+    rgb(248 250 252 / 80%) 45%,
+    rgb(148 163 184 / 65%)
+  );
+  box-shadow:
+    0 16px 40px rgb(0 0 0 / 35%),
+    0 0 0 1px rgb(255 255 255 / 25%);
 }
 
 .hero__photo {
