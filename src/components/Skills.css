@@ -58,6 +58,7 @@
     0 12px 34px rgb(0 0 0 / 20%),
     0 0 0 1px rgb(93 63 211 / 30%),
     0 0 24px rgb(93 63 211 / 28%);
+  animation: skills-card-glow-pulse 3s ease-in-out infinite;
   transition:
     box-shadow 180ms ease,
     transform 180ms ease;
@@ -69,6 +70,23 @@
     0 16px 40px rgb(0 0 0 / 26%),
     0 0 0 1px rgb(93 63 211 / 45%),
     0 0 34px rgb(93 63 211 / 40%);
+}
+
+@keyframes skills-card-glow-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 12px 34px rgb(0 0 0 / 20%),
+      0 0 0 1px rgb(93 63 211 / 24%),
+      0 0 18px rgb(93 63 211 / 20%);
+  }
+
+  50% {
+    box-shadow:
+      0 14px 36px rgb(0 0 0 / 24%),
+      0 0 0 1px rgb(93 63 211 / 38%),
+      0 0 30px rgb(93 63 211 / 36%);
+  }
 }
 
 .skills-card__title {
