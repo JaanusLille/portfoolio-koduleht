@@ -109,12 +109,43 @@
   /* padding: 0.25rem 0.6rem; */
   padding: 0.33rem 1rem;
   border-radius: 999px;
-  border: 3px solid rgb(148 163 184 / 30%);
+  border: 2px solid rgb(167 139 250 / 58%);
   background: rgb(15 23 42 / 84%);
   font-family: var(--font-sans);
-  font-size: .82rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  color: rgb(226 232 240);
+  color: rgb(196 181 253);
+  box-shadow: 0 0 14px rgb(167 139 250 / 18%);
+}
+
+.skills-card__item:nth-child(6n + 2) {
+  border-color: rgb(34 211 238 / 60%);
+  color: rgb(103 232 249);
+  box-shadow: 0 0 14px rgb(34 211 238 / 20%);
+}
+
+.skills-card__item:nth-child(6n + 3) {
+  border-color: rgb(52 211 153 / 58%);
+  color: rgb(110 231 183);
+  box-shadow: 0 0 14px rgb(52 211 153 / 18%);
+}
+
+.skills-card__item:nth-child(6n + 4) {
+  border-color: rgb(244 114 182 / 58%);
+  color: rgb(249 168 212);
+  box-shadow: 0 0 14px rgb(244 114 182 / 18%);
+}
+
+.skills-card__item:nth-child(6n + 5) {
+  border-color: rgb(245 158 11 / 60%);
+  color: rgb(251 191 36);
+  box-shadow: 0 0 14px rgb(245 158 11 / 18%);
+}
+
+.skills-card__item:nth-child(6n) {
+  border-color: rgb(96 165 250 / 58%);
+  color: rgb(147 197 253);
+  box-shadow: 0 0 14px rgb(96 165 250 / 18%);
 }
 
 @media (max-width: 720px) {
