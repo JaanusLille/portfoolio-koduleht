@@ -20,7 +20,11 @@ const skillGroups: SkillGroup[] = [
   },
   {
     title: 'Tools & DevOps',
-    items: ['Git', 'Github', 'Docker', 'npm', 'CI/CD'],
+    items: ['Git', 'Github', 'Docker', 'NPM', 'CI/CD'],
+  },
+  {
+    title: 'Data & Database Technologies',
+    items: ['PostgreSQL', 'MySQL', 'MariaDB', 'Pandas', 'NumPy', 'RabbitMQ'],
   },
 ]
 
