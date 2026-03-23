@@ -11,10 +11,10 @@
 }
 
 .site-header__inner {
-  max-width: var(--content-max);
+  max-width: min(123rem, 100%);
   margin: 0 auto;
   min-height: 7.5rem;
-  padding: 1.75rem 1.5rem;
+  padding: 1.75rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
