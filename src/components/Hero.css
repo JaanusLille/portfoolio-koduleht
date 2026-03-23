@@ -40,7 +40,8 @@
 }
 
 .hero__photo-wrap {
-  width: clamp(180px, 26vw, 320px);
+  /* width: clamp(180px, 26vw, 320px); */
+  width: clamp(180px, 26vw, 420px);
   aspect-ratio: 1;
   border-radius: 50%;
   padding: clamp(0.35rem, 1vw, 0.6rem);
