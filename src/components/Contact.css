@@ -1,0 +1,195 @@
+.contact {
+  padding: clamp(3rem, 8vw, 6rem) 1.5rem;
+  background: linear-gradient(180deg, rgb(8 14 32), rgb(2 6 23));
+}
+
+.contact__inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.contact__header {
+  max-width: 52rem;
+  margin-bottom: clamp(1.75rem, 3vw, 2.75rem);
+}
+
+.contact__eyebrow {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgb(251 191 36 / 95%);
+}
+
+.contact__title {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 4vw, 2.65rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: rgb(248 250 252);
+}
+
+.contact__lede {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  line-height: 1.65;
+  color: rgb(203 213 225);
+}
+
+.contact__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: 16px;
+  border: 1px solid rgb(148 163 184 / 26%);
+  background:
+    linear-gradient(180deg, rgb(15 23 42 / 92%), rgb(15 23 42 / 82%)),
+    radial-gradient(circle at top right, rgb(148 163 184 / 16%), transparent 48%);
+  box-shadow: 0 12px 34px rgb(0 0 0 / 22%);
+}
+
+.contact-card__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: rgb(248 250 252);
+}
+
+.contact-card__text {
+  margin: 0;
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: rgb(203 213 225);
+}
+
+.contact-card__btn {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  width: fit-content;
+  padding: 0 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgb(148 163 184 / 45%);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.contact-card__btn--primary {
+  border-color: rgb(248 250 252 / 92%);
+  background: rgb(248 250 252);
+  color: rgb(15 23 42);
+}
+
+.contact-card__btn--primary:hover {
+  border-color: rgb(248 250 252);
+  background: rgb(255 255 255);
+  transform: translateY(-1px);
+}
+
+.contact-card__btn:focus-visible,
+.contact-card__link:focus-visible {
+  outline: 2px solid rgb(251 191 36);
+  outline-offset: 3px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.contact-form__row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.contact-form__label {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgb(148 163 184);
+}
+
+.contact-form__input,
+.contact-form__textarea {
+  width: 100%;
+  border-radius: 12px;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid rgb(148 163 184 / 30%);
+  background: rgb(15 23 42 / 70%);
+  color: rgb(248 250 252);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.4;
+  resize: vertical;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.contact-form__textarea {
+  min-height: 8rem;
+}
+
+.contact-form__input::placeholder,
+.contact-form__textarea::placeholder {
+  color: rgb(148 163 184 / 72%);
+}
+
+.contact-form__input:focus-visible,
+.contact-form__textarea:focus-visible {
+  outline: none;
+  border-color: rgb(251 191 36);
+  box-shadow: 0 0 0 3px rgb(251 191 36 / 18%);
+}
+
+.contact-form__submit {
+  width: fit-content;
+  margin-top: 0;
+  align-self: flex-start;
+}
+
+.contact-form__helper {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: rgb(203 213 225);
+  line-height: 1.5;
+}
+
+.contact-form__helper a {
+  color: rgb(253 230 138);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.contact-form__helper a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 720px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card {
+    padding: 1.1rem;
+  }
+}

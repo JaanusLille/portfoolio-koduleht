@@ -18,7 +18,7 @@ const navLinks: NavLink[] = [
     icon: 'github',
     external: true,
   },
-  { href: '#linkedin', label: 'LinkedIn', icon: 'linkedin' },
+  { href: site.linkedinUrl, label: 'LinkedIn', icon: 'linkedin', external: true },
   { href: '#contact', label: 'Contact' },
 ]
 
