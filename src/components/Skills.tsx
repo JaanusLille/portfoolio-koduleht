@@ -11,11 +11,11 @@ const skillGroups: SkillGroup[] = [
     items: ['TypeScript', 'JavaScript', 'Python', 'Java', 'SQL', 'C', 'C#', 'Go'],
   },
   {
-    title: 'Frontend',
+    title: 'Frameworks (Frontend)',
     items: ['React', 'Angular', 'Vue', 'Bootstrap'],
   },
   {
-    title: 'Backend',
+    title: 'Frameworks (Backend)',
     items: ['Spring Boot', 'Node.js', 'Express.js', 'Hibernate'],
   },
   {
