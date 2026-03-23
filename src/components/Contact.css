@@ -213,22 +213,6 @@
   align-self: flex-start;
 }
 
-.contact-form__helper {
-  margin: 0;
-  font-family: var(--font-sans);
-  color: rgb(203 213 225);
-  line-height: 1.5;
-}
-
-.contact-form__helper a {
-  color: rgb(253 230 138);
-  text-decoration: none;
-  font-weight: 700;
-}
-
-.contact-form__helper a:hover {
-  text-decoration: underline;
-}
 
 @media (prefers-reduced-motion: reduce) {
   .contact-card::before {

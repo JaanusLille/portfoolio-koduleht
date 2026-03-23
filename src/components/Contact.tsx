@@ -115,10 +115,6 @@ export function Contact() {
                 Send email
               </button>
 
-              <p className="contact-form__helper">
-                If the email client doesn’t open automatically, use{' '}
-                <a href={`mailto:${site.email}`}>{site.email}</a>.
-              </p>
             </form>
           </article>
         </div>
