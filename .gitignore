@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Contact form (PHP): secrets and Composer deps copied into public/ for deploy
+public/mail_config.php
+public/vendor
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

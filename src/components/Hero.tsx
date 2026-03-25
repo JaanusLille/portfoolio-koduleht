@@ -22,7 +22,7 @@ export function Hero() {
           </div>
         </div>
         <div className="hero__photo-wrap">
-          <img className="hero__photo" src="/miisu.jpg" alt="Profile portrait" />
+          <img className="hero__photo" src="/ma.jpg" alt="Profile portrait" />
         </div>
       </div>
     </section>

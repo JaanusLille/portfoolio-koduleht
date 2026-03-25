@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="site-footer">
       <div className="site-footer__inner">
         <p className="site-footer__copy">
-          {year} {site.name}. Built with care.
+          Copyright © {year} {site.name}
         </p>
 
         <nav className="site-footer__nav" aria-label="Footer">
