@@ -1,0 +1,10 @@
+{
+  "name": "portfolio/contact-handler",
+  "description": "Server-side contact form for static portfolio (PHPMailer + SMTP)",
+  "require": {
+    "phpmailer/phpmailer": "^6.9"
+  },
+  "config": {
+    "sort-packages": true
+  }
+}

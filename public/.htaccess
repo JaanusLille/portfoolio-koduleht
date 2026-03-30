@@ -1,0 +1,2 @@
+# Avoid directory listings for vendor/ and other folders (Apache).
+Options -Indexes

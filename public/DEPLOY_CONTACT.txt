@@ -1,0 +1,32 @@
+Contact form (PHP) - deploy steps
+----------------------------------
+
+Recommended order (single upload of dist/)
+
+1) Install PHPMailer next to contact.php (in public/), so it is copied when you build:
+
+   npm run contact-php:install
+
+   Requires Composer: https://getcomposer.org
+   This creates public/vendor/
+
+2) Build the site
+
+   npm run build
+
+   Vite copies public/* into dist/, including contact.php and vendor/
+
+3) Configure SMTP (zone.ee mailbox)
+
+   Copy mail_config.sample.php to mail_config.php (in dist/ before upload, or on the server).
+   Fill in smtpHost, smtpPort, smtpEncryption, username, password, and from/to addresses.
+   Never commit mail_config.php or upload it to a public Git repo.
+
+4) Upload everything inside dist/ to your hosting web root
+   (index.html, assets/, contact.php, vendor/, .htaccess, mail_config.php, etc.)
+
+5) Test the form on the live site.
+
+Alternative: run `composer install` via SSH inside the deployed web root if you prefer not to upload vendor/ from your PC.
+
+If sending fails, verify zone.ee SMTP (often 587 + TLS or 465 + SSL), credentials, and PHP error logs on the host.

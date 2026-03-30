@@ -9,7 +9,29 @@ type Project = {
 }
 
 const projects: Project[] = [
-
+  // {
+  //   title: 'Portfolio website',
+  //   summary:
+  //     'A modern single-page portfolio focused on performance, accessibility, and a clean visual identity.',
+  //   stack: ['React', 'TypeScript', 'CSS'],
+  //   codeUrl: 'https://github.com/YOUR_USERNAME/portfolio',
+  //   liveUrl: 'https://your-portfolio.example',
+  // },
+  // {
+  //   title: 'Task manager app',
+  //   summary:
+  //     'A productivity app with filtering, keyboard-friendly interactions, and responsive layouts for daily planning.',
+  //   stack: ['React', 'TypeScript', 'Vite'],
+  //   codeUrl: 'https://github.com/YOUR_USERNAME/task-manager',
+  //   liveUrl: 'https://task-manager.example',
+  // },
+  // {
+  //   title: 'Weather dashboard',
+  //   summary:
+  //     'A weather interface that combines current conditions and forecast data with clear, glanceable UI states.',
+  //   stack: ['React', 'REST API', 'CSS Grid'],
+  //   codeUrl: 'https://github.com/YOUR_USERNAME/weather-dashboard',
+  // },
 ]
 
 export function Projects() {
