@@ -1,7 +1,32 @@
 .app {
   min-height: 100svh;
+  position: relative;
   display: flex;
   flex-direction: column;
+  isolation: isolate;
+}
+
+.app::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  background:
+    radial-gradient(
+      0.1rem circle at var(--mouse-x) var(--mouse-y),
+      /* rgb(251 191 36 / 16%), */
+      rgba(233, 232, 228, 0.16),
+      transparent 70%
+    ),
+    radial-gradient(
+      18rem circle at var(--mouse-x) var(--mouse-y),
+      /* rgb(196 181 253 / 12%), */
+      rgb(196 181 253 / 12%),
+      transparent 72%
+    );
+  opacity: 1;
+  mix-blend-mode: screen;
 }
 
 .app main {

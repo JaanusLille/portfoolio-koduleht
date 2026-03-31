@@ -7,6 +7,8 @@
   --border-strong: #cfc6ba;
   --accent: #b54a28;
   --accent-warm: #c9783a;
+  --mouse-x: 50vw;
+  --mouse-y: 50vh;
 
   --font-display: 'Literata', Georgia, 'Times New Roman', serif;
   --font-sans: 'Epilogue', system-ui, sans-serif;

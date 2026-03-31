@@ -45,7 +45,7 @@ const projects: Project[] = [
     title: 'Racetrack',
     summary:
       'This project is a real-time racetrack management system designed to support race officials, drivers, and spectators during live events. \nIt handles session control, lap time tracking, leaderboard updates, and race status displays across multiple dedicated screens. \nUsing a JSON file-based data storage, the system is built to keep race information accurate, visible, and synchronized throughout the event, while also preserving session data between restarts.',
-    stack: ['React', 'Node.js', 'Express', 'Socket.IO', 'dotenv', 'CORS', 'Nodemon', 'Socket.IO'],
+    stack: ['React', 'Node.js', 'Express', 'Socket.IO', 'dotenv', 'CORS', 'Nodemon'],
     codeUrl: 'https://github.com/JaanusLille/racetrack',
     imageUrl: '/project-previews/racetrack.png',
     imageAlt: 'Preview of Racetrack',
