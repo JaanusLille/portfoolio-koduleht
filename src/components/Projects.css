@@ -157,6 +157,7 @@
   margin: 0;
   font-family: var(--font-sans);
   line-height: 1.6;
+  white-space: pre-line;
   color: rgb(203 213 225);
 }
 
