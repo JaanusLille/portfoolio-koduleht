@@ -1,3 +1,4 @@
+import './SectionCardShared.css'
 import './Skills.css'
 
 type SkillGroup = {
@@ -44,11 +45,11 @@ export function Skills() {
 
         <div className="skills__grid">
           {skillGroups.map((group) => (
-            <article key={group.title} className="skills-card">
+            <article key={group.title} className="skills-card section-card">
               <h3 className="skills-card__title">{group.title}</h3>
               <ul className="skills-card__list">
                 {group.items.map((item) => (
-                  <li key={item} className="skills-card__item">
+                  <li key={item} className="skills-card__item section-pill">
                     {item}
                   </li>
                 ))}

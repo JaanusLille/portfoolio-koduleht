@@ -88,7 +88,7 @@ export function Contact() {
             Let's work together
           </h2>
           <p className="contact__lede">
-            Download my CV and send me a message.
+            View my CV and send me a message.
           </p>
         </header>
 
@@ -106,7 +106,7 @@ export function Contact() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Download CV
+              View CV
             </a>
           </article>
 

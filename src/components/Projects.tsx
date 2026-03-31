@@ -1,3 +1,4 @@
+import './SectionCardShared.css'
 import './Projects.css'
 
 type Project = {
@@ -28,13 +29,13 @@ export function Projects() {
 
         <div className="projects__grid">
           {projects.map((project) => (
-            <article key={project.title} className="project-card">
+            <article key={project.title} className="project-card section-card">
               <h3 className="project-card__title">{project.title}</h3>
               <p className="project-card__summary">{project.summary}</p>
 
               <ul className="project-card__stack" aria-label={`${project.title} tech stack`}>
                 {project.stack.map((tech) => (
-                  <li key={tech} className="project-card__tag">
+                  <li key={tech} className="project-card__tag section-pill">
                     {tech}
                   </li>
                 ))}
