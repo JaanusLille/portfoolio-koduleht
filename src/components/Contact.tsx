@@ -1,36 +1,82 @@
-import { useId } from 'react'
+import { useId, useState } from 'react'
 import type { FormEvent } from 'react'
 import { site } from '../config/site'
 import './Contact.css'
+
+type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 
 export function Contact() {
   const formId = useId()
   const nameId = `${formId}-name`
   const emailId = `${formId}-email`
   const messageId = `${formId}-message`
+  const hpId = `${formId}-company`
+  const [status, setStatus] = useState<FormStatus>('idle')
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-
-    const data = new FormData(e.currentTarget)
+    const form = e.currentTarget
+    const data = new FormData(form)
     const name = String(data.get('name') ?? '').trim()
-    const fromEmail = String(data.get('email') ?? '').trim()
+    const email = String(data.get('email') ?? '').trim()
     const message = String(data.get('message') ?? '').trim()
 
-    const subject = `Portfolio inquiry from ${name || 'a visitor'}`
-    const body = [
-      message || '(no message provided)',
-      '',
-      '—',
-      `From: ${name || 'Visitor'}`,
-      `Email: ${fromEmail || 'N/A'}`,
-    ].join('\n')
+    setStatus('sending')
+    setErrorMessage(null)
 
-    const mailto = `mailto:${site.email}?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`
+    const payload = new FormData()
+    payload.append('name', name)
+    payload.append('email', email)
+    payload.append('message', message)
+    payload.append('_subject', `Portfolio inquiry from ${name || 'a visitor'}`)
+    payload.append('_honey', String(data.get('company') ?? '').trim())
+    payload.append('_captcha', 'false')
 
-    window.location.href = mailto
+    try {
+      const res = await fetch(site.contactEndpoint, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+        },
+        body: payload,
+      })
+
+      // Guard against non-JSON or empty responses so parsing failures do not break submission flow.
+      const body: unknown = await res.json().catch(() => null)
+      const parsed =
+        body && typeof body === 'object'
+          ? (body as { success?: boolean | string; message?: string; error?: string })
+          : null
+
+      // Guard against providers that report success in different shapes (boolean flag or message text).
+      const ok = Boolean(
+        res.ok &&
+          (parsed?.success === true ||
+            parsed?.success === 'true' ||
+            (typeof parsed?.message === 'string' && parsed.message.length > 0)),
+      )
+
+      if (!ok) {
+        // Guard against missing or inconsistent error payloads by falling back to a safe generic message.
+        const msg =
+          typeof parsed?.error === 'string'
+            ? parsed.error
+            : typeof parsed?.message === 'string'
+              ? parsed.message
+              : 'Could not send your message. Please try again.'
+        setErrorMessage(msg)
+        setStatus('error')
+        return
+      }
+
+      setStatus('success')
+      form.reset()
+    } catch {
+      // Guard against transport/runtime failures (network down, blocked request, CORS, etc.).
+      setErrorMessage('Could not send your message right now. Please try again in a moment.')
+      setStatus('error')
+    }
   }
 
   return (
@@ -42,7 +88,7 @@ export function Contact() {
             Let's work together
           </h2>
           <p className="contact__lede">
-            Download my CV and send me a message. 
+            Download my CV and send me a message.
           </p>
         </header>
 
@@ -69,7 +115,12 @@ export function Contact() {
               Send a message
             </h3>
 
-            <form className="contact-form" onSubmit={onSubmit}>
+            <form className="contact-form" onSubmit={onSubmit} noValidate>
+              <div className="contact-form__hp" aria-hidden="true">
+                <label htmlFor={hpId}>Company</label>
+                <input id={hpId} name="company" type="text" tabIndex={-1} autoComplete="off" />
+              </div>
+
               <div className="contact-form__row">
                 <label className="contact-form__label" htmlFor={nameId}>
                   Your name
@@ -111,10 +162,25 @@ export function Contact() {
                 />
               </div>
 
-              <button className="contact-card__btn contact-card__btn--primary contact-form__submit" type="submit">
-                Send email
+              <button
+                className="contact-card__btn contact-card__btn--primary contact-form__submit"
+                type="submit"
+                disabled={status === 'sending'}
+              >
+                {status === 'sending' ? 'Sending...' : 'Send message'}
               </button>
 
+              {status === 'success' ? (
+                <p className="contact-form__status contact-form__status--success" role="status">
+                  Thanks - your message was sent.
+                </p>
+              ) : null}
+
+              {status === 'error' && errorMessage ? (
+                <p className="contact-form__status contact-form__status--error" role="alert">
+                  {errorMessage}
+                </p>
+              ) : null}
             </form>
           </article>
         </div>

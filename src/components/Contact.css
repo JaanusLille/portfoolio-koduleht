@@ -163,6 +163,13 @@
   gap: 0.95rem;
 }
 
+.contact-form__hp {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .contact-form__row {
   display: flex;
   flex-direction: column;
@@ -211,6 +218,20 @@
   width: fit-content;
   margin-top: 0;
   align-self: flex-start;
+}
+
+.contact-form__status {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.contact-form__status--success {
+  color: rgb(134 239 172);
+}
+
+.contact-form__status--error {
+  color: rgb(252 165 165);
 }
 
 
