@@ -1,9 +1,6 @@
-import { useId, useState } from 'react'
-import type { FormEvent } from 'react'
+import { useId } from 'react'
 import { site } from '../config/site'
 import './Contact.css'
-
-type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 
 export function Contact() {
   const formId = useId()
@@ -11,73 +8,6 @@ export function Contact() {
   const emailId = `${formId}-email`
   const messageId = `${formId}-message`
   const hpId = `${formId}-company`
-  const [status, setStatus] = useState<FormStatus>('idle')
-  const [errorMessage, setErrorMessage] = useState<string | null>(null)
-
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const form = e.currentTarget
-    const data = new FormData(form)
-    const name = String(data.get('name') ?? '').trim()
-    const email = String(data.get('email') ?? '').trim()
-    const message = String(data.get('message') ?? '').trim()
-
-    setStatus('sending')
-    setErrorMessage(null)
-
-    const payload = new FormData()
-    payload.append('name', name)
-    payload.append('email', email)
-    payload.append('message', message)
-    payload.append('_subject', `Portfolio inquiry from ${name || 'a visitor'}`)
-    payload.append('_honey', String(data.get('company') ?? '').trim())
-    payload.append('_captcha', 'false')
-
-    try {
-      const res = await fetch(site.contactEndpoint, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-        },
-        body: payload,
-      })
-
-      // Guard against non-JSON or empty responses so parsing failures do not break submission flow.
-      const body: unknown = await res.json().catch(() => null)
-      const parsed =
-        body && typeof body === 'object'
-          ? (body as { success?: boolean | string; message?: string; error?: string })
-          : null
-
-      // Guard against providers that report success in different shapes (boolean flag or message text).
-      const ok = Boolean(
-        res.ok &&
-          (parsed?.success === true ||
-            parsed?.success === 'true' ||
-            (typeof parsed?.message === 'string' && parsed.message.length > 0)),
-      )
-
-      if (!ok) {
-        // Guard against missing or inconsistent error payloads by falling back to a safe generic message.
-        const msg =
-          typeof parsed?.error === 'string'
-            ? parsed.error
-            : typeof parsed?.message === 'string'
-              ? parsed.message
-              : 'Could not send your message. Please try again.'
-        setErrorMessage(msg)
-        setStatus('error')
-        return
-      }
-
-      setStatus('success')
-      form.reset()
-    } catch {
-      // Guard against transport/runtime failures (network down, blocked request, CORS, etc.).
-      setErrorMessage('Could not send your message right now. Please try again in a moment.')
-      setStatus('error')
-    }
-  }
 
   return (
     <section className="contact" id="contact" aria-labelledby="contact-heading">
@@ -115,11 +45,13 @@ export function Contact() {
               Send a message
             </h3>
 
-            <form className="contact-form" onSubmit={onSubmit} noValidate>
+            <form className="contact-form" action={site.contactEndpoint} method="POST">
               <div className="contact-form__hp" aria-hidden="true">
                 <label htmlFor={hpId}>Company</label>
-                <input id={hpId} name="company" type="text" tabIndex={-1} autoComplete="off" />
+                <input id={hpId} name="_honey" type="text" tabIndex={-1} autoComplete="off" />
               </div>
+
+              <input type="hidden" name="_subject" value="Portfolio inquiry" />
 
               <div className="contact-form__row">
                 <label className="contact-form__label" htmlFor={nameId}>
@@ -165,22 +97,9 @@ export function Contact() {
               <button
                 className="contact-card__btn contact-card__btn--primary contact-form__submit"
                 type="submit"
-                disabled={status === 'sending'}
               >
-                {status === 'sending' ? 'Sending...' : 'Send message'}
+                Send message
               </button>
-
-              {status === 'success' ? (
-                <p className="contact-form__status contact-form__status--success" role="status">
-                  Thanks - your message was sent.
-                </p>
-              ) : null}
-
-              {status === 'error' && errorMessage ? (
-                <p className="contact-form__status contact-form__status--error" role="alert">
-                  {errorMessage}
-                </p>
-              ) : null}
             </form>
           </article>
         </div>

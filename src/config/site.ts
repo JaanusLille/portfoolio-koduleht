@@ -7,7 +7,7 @@ export const site = {
     'I design and build fast, accessible web experiences. Here you can explore selected work and how I approach each project.',
   githubUrl: 'https://github.com/JaanusLille',
   cvUrl: '/cv/cv.pdf',
-  contactEndpoint: 'https://formsubmit.co/ajax/jaanuslille@gmail.com',
+  contactEndpoint: 'https://formsubmit.co/jaanuslille@gmail.com',
   email: 'jaanuslille@gmail.com',
   linkedinUrl: 'https://www.linkedin.com/in/jaanus-lille/',
 } as const
