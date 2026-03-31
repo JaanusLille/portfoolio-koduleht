@@ -3,7 +3,9 @@
   position: relative;
   padding: clamp(3rem, 8vw, 5.5rem) 1.5rem clamp(4rem, 12vw, 7rem);
   overflow: hidden;
-  background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+  /* background-color: rgb(15 23 42 / var(--tw-bg-opacity)); */
+  background: linear-gradient(180deg, rgb(8 14 32), rgb(2 6 23));
+      /* background: rgb(2 6 23); */
 }
 
 .hero__glow {
