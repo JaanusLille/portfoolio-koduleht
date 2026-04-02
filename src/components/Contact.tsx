@@ -47,8 +47,17 @@ export function Contact() {
 
             <form className="contact-form" action={site.contactEndpoint} method="POST">
               <div className="contact-form__hp" aria-hidden="true">
-                <label htmlFor={hpId}>Company</label>
-                <input id={hpId} name="_honey" type="text" tabIndex={-1} autoComplete="off" />
+                <label htmlFor={hpId}>&#8203;</label>
+                <input
+                  id={hpId}
+                  name="_honey"
+                  type="text"
+                  tabIndex={-1}
+                  readOnly
+                  autoComplete="new-password"
+                  data-lpignore="true"
+                  data-1p-ignore
+                />
               </div>
 
               <input type="hidden" name="_subject" value="Portfolio inquiry" />
