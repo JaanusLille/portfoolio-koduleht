@@ -118,7 +118,7 @@ export function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Code
+                    GitHub link
                   </a>
                   {project.liveUrl ? (
                     <a

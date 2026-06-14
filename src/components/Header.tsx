@@ -11,7 +11,7 @@ type NavLink = {
 
 const navLinks: NavLink[] = [
   { href: '#projects', label: 'Projects' },
-  { href: '#cv', label: 'CV' },
+  { href: site.cvUrl, label: 'CV', external: true },
   {
     href: site.githubUrl,
     label: 'GitHub',
