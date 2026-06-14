@@ -86,7 +86,7 @@ This includes:
 - GitHub link
 - LinkedIn link
 - CV path
-- contact email and FormSubmit endpoint
+- FormSubmit endpoint
 
 Project content is defined directly in `src/components/Projects.tsx`.
 
@@ -94,11 +94,10 @@ Project content is defined directly in `src/components/Projects.tsx`.
 
 The contact form uses FormSubmit with a normal HTML `POST` request. This keeps the form simple and does not require a backend for this portfolio site.
 
-Before deploying, make sure the values in `src/config/site.ts` point to the correct email address:
+Before deploying, make sure the FormSubmit endpoint in `src/config/site.ts` points to the correct email address:
 
 ```ts
 contactEndpoint: 'https://formsubmit.co/your-email@example.com'
-email: 'your-email@example.com'
 ```
 
 After the first live form submission, FormSubmit may ask you to confirm the receiving email address. Once confirmed, submit a second test message to verify delivery.
